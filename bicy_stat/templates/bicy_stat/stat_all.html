@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    stats
+{% endblock %}
+{% block current %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">홈</a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'bicy_stat:stats_index' %}">통계<span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">커뮤니티</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <h1>통계</h1>
+    <br>
+
+    {% for stat in bicy_stats %}
+        
+    {% endfor %}
+
+{% endblock %}
