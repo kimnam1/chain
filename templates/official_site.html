@@ -2,18 +2,22 @@
 
 {% block title %}official_site{% endblock %}
 
-{% block extra-script %}
-    <script type="text/javascript" src="../jquery-1.2.6.min.js"></script>
-    <script type="text/javascript">
-     <!--
-      jQuery(function($) {
-       $("#contentArea").load("https://www.bikeseoul.com/main.do");
-      });
-
-     //-->
-     </script>
+{% block extra-style %}
+    <style>
+    .iframe_official{
+        height: calc(100vh - 56px);
+        width: 100vw;
+    }
+    .container{
+        padding-right: 0px;
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
-    <div id="contentArea"></div>
+
+        <iframe class="iframe_official" src="https://www.bikeseoul.com/main.do" frameborder="0" height="100%" width="100%"></iframe>
+
 {% endblock %}
