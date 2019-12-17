@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import HomeView
+from .views import HomeView, MyPageView, OfficialSiteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('mypage/', MyPageView.as_view(), name="mypage"),
     path('', HomeView.as_view(), name="home"),
+    path('officialsite/', OfficialSiteView.as_view(), name='official_site'),
     path('stat/', include('bicy_stat.urls')),
+
 ]

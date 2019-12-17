@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}official_site{% endblock %}
+
+{% block extra-script %}
+    <script type="text/javascript" src="../jquery-1.2.6.min.js"></script>
+    <script type="text/javascript">
+     <!--
+      jQuery(function($) {
+       $("#contentArea").load("https://www.bikeseoul.com/main.do");
+      });
+
+     //-->
+     </script>
+{% endblock %}
+
+{% block content %}
+    <div id="contentArea"></div>
+{% endblock %}

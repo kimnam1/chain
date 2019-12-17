@@ -9,9 +9,8 @@
     {% block extra-style %}{% endblock %}
 </head>
 <body>
-{% block current %}
-    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">CHAIN</a>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">CHAIN</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,10 +25,15 @@
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#">커뮤니티</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'official_site' %}">공식 홈페이지</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mypage' %}">마이 페이지</a>
+                </li>
              </ul>
         </div>
     </nav>
-{% endblock %}
 {#            #드롭다운#}
 {#                <li class="nav-item dropdown">#}
 {#                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
