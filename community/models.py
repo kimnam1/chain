@@ -1,5 +1,4 @@
 from django.db import models
-from scripts.update_data import realtimeData
 
 class Station(models.Model):
     stationName = models.CharField('NAME', max_length=50)
