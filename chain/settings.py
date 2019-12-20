@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'bicy_stat.apps.BicyStatConfig',
     'community.apps.CommunityConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +125,5 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/'

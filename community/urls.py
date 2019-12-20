@@ -6,4 +6,3 @@ urlpatterns = [
     path('', CommuLV.as_view(), name='index'),
     path('<int:pk>/', StationDV.as_view(), name='station_detail'),
 ]
-

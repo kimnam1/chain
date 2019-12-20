@@ -12,7 +12,11 @@ def run():
     for i in Station.objects.all():
         for f in data['realtimeList']:
             if f['stationId'] == i.stationId:
+                alert1 = i.stationName
+                alert2 = i.parkingBikeTotCnt
+                alert3 = f['parkingBikeTotCnt']
                 Station.objects.filter(stationId=i.stationId).update(parkingBikeTotCnt=f['parkingBikeTotCnt'])
+                print(alert1 + " 정류소 " + str(alert2) + "개 -> " + str(alert3) + "개")
     return data
 
 

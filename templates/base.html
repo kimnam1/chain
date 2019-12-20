@@ -28,8 +28,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'official_site' %}">따릉이 공식 홈페이지</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'mypage' %}">마이 페이지</a>
+                <li class="nav-item dropdown">
+                    {% if user.is_active %}
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>{% firstof user.get_short_name user.get_username %} 님
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbar Dropdown">
+                            <a class="dropdown-item" href="{% url 'favorite_station' %}">즐겨찾는 정류소</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
+                            <a class="dropdown-item" href="{% url 'password_change' %}">패스워드 바꾸기</a>
+                        </div>
+                    {% else %}
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>마이 페이지
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbar Dropdown">
+                            <a class="dropdown-item" href="{% url 'login' %}">로그인</a>
+                            <a class="dropdown-item" href="{% url 'register' %}">회원가입</a>
+                        </div>
+                    {% endif %}
+
                 </li>
              </ul>
         </div>

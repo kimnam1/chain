@@ -15,13 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import HomeView, MyPageView, OfficialSiteView
+from .views import HomeView, MyPageView, OfficialSiteView, UserCreateDoneTV, UserCreateView, FavoriteSV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # 홈
     path('mypage/', MyPageView.as_view(), name="mypage"),
     path('', HomeView.as_view(), name="home"),
     path('officialsite/', OfficialSiteView.as_view(), name='official_site'),
     path('stat/', include('bicy_stat.urls')),
-    path('community/', include('community.urls'))
+    path('community/', include('community.urls')),
+    path('favoritestation/', FavoriteSV.as_view(), name='favorite_station'),
+
+    # 로그인
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', UserCreateView.as_view(), name='register'),
+    path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
 ]
