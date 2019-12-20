@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Station(models.Model):
     stationName = models.CharField('STATION_NAME', max_length=50, default='station_name')
@@ -12,3 +13,6 @@ class Station(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('community:station_detail', args=(self.pk,))

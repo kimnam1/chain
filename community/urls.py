@@ -4,6 +4,6 @@ from .views import CommuLV, StationDV
 app_name = 'community'
 urlpatterns = [
     path('', CommuLV.as_view(), name='index'),
-    path('<str:stationId>/', StationDV.as_view(), name='station_detail'),
+    path('<int:pk>/', StationDV.as_view(), name='station_detail'),
 ]
 

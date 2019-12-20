@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ station.stationName }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ station.stationName }}</h1>
+    <br>
+    <h2>정류소 통계 부분</h2>
+    <br>
+    <h2>정류소 게시글</h2>
+    <br>
+    <div id="disqus_thread"></div>
+{% endblock %}
+
+{% block extra-script %}
+    <script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+    this.page.url = "{{disqus_url}}";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "{{disqus_id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.title = "{{ disqus_title }}"
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://pydjango-web-programming-2.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endblock %}

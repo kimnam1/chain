@@ -2,8 +2,13 @@
 
 {% block title %}community{% endblock %}
 
-
 {% block content %}
     <h1>커뮤니티</h1>
-    <h2></h2>
+    <h2>통계</h2>
+    <br>
+    <br>
+
+    {% for station in station_list %}
+        <h3><a href="{{ station.get_absolute_url }}">    {{ station.stationName }}</a></h3>
+    {% endfor %}
 {% endblock %}
