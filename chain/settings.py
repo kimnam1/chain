@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'bicy_stat.apps.BicyStatConfig',
+    'community.apps.CommunityConfig',
 ]
 
 MIDDLEWARE = [

@@ -23,5 +23,5 @@ urlpatterns = [
     path('', HomeView.as_view(), name="home"),
     path('officialsite/', OfficialSiteView.as_view(), name='official_site'),
     path('stat/', include('bicy_stat.urls')),
-
+    path('community/', include('community.urls'))
 ]

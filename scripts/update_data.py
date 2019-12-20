@@ -1,6 +1,6 @@
 import requests
 import json
-from bicy_stat.models import Station
+from community.models import Station
 
 def run():
     data = requests.post(
