@@ -9,16 +9,21 @@ class run():
     ).text
     data = json.loads(data)
 
-    count = 0
+    count1 = 0
+    count2 = 0
+    new_station = {}
     for info in data['realtimeList']:
         if Station.objects.filter(stationId=info['stationId']):
-            pass
+            print(info['stationName'] + " 있음")
+            count2 += 1
         else:
-            print(info['stationName'] + " 정류소 없음")
+            print(info['stationName'] + " 정류소 없음!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             Station(stationName=info['stationName'], stationId=info['stationId'], latitude=info['stationLatitude'], longitude=info['stationLongitude'], parkingBikeTotCnt=info['parkingBikeTotCnt']).save()
-            count += 1
+            count1 += 1
+            new_station.__new__(info['stationName'])
 
-    if count == 0:
+    if count1 == 0:
         print("추가된 정류소 없음.")
+        print("총 " + str(count2) + "개 정류소")
     else:
-        print(str(count) + "개의 정류소 추가됨.")
+        print(str(count1) + "개의 정류소 추가됨.")

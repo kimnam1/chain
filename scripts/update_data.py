@@ -9,13 +9,13 @@ def run():
     ).text
     data = json.loads(data)
 
-    for i in Station.objects.all():
-        for f in data['realtimeList']:
-            if f['stationId'] == i.stationId:
-                alert1 = i.stationName
-                alert2 = i.parkingBikeTotCnt
-                alert3 = f['parkingBikeTotCnt']
-                Station.objects.filter(stationId=i.stationId).update(parkingBikeTotCnt=f['parkingBikeTotCnt'])
+    for info_saved in Station.objects.all():
+        for info_update in data['realtimeList']:
+            if info_update['stationId'] == info_saved.stationId:
+                alert1 = info_saved.stationName
+                alert2 = info_saved.parkingBikeTotCnt
+                alert3 = info_update['parkingBikeTotCnt']
+                Station.objects.filter(stationId=info_saved.stationId).update(parkingBikeTotCnt=info_update['parkingBikeTotCnt'])
                 print(alert1 + " 정류소 " + str(alert2) + "개 -> " + str(alert3) + "개")
     return data
 
